@@ -146,24 +146,25 @@ http://localhost:8000
 ## Screenshots
 
 ### Home Page
+![Home Page](images/screenshots/Home-Page.png)
 
-(Add Screenshot)
+### Login Page
+![Login Page](images/screenshots/Login-Page.png)
+
+### Registration Page
+![Registration Page](images/screenshots/Registration-Page.png)
 
 ### Donor Search Page
+![Donor Search Page](images/screenshots/Donor-Search-Page.png)
 
-(Add Screenshot)
-
-### Hospital Search Page
-
-(Add Screenshot)
+### Hospital Bed Availability Page
+![Hospital Bed Availability Page](images/screenshots/Hospital-Bed-Availability-Page.png)
 
 ### Emergency Request Page
-
-(Add Screenshot)
+![Emergency Request Page](images/screenshots/Emergency-Request-Page.png)
 
 ### Admin Dashboard
-
-(Add Screenshot)
+![Admin Dashboard](images/screenshots/Admin-Dashboard-Page.png)
 
 ## Academic Information
 
