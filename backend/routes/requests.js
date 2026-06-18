@@ -80,15 +80,15 @@ router.post("/", (req, res) => {
             });
 
             sendEmail(
-    "sbdehas@gmail.com",
-    "New Emergency Blood Request",
-    `
-Patient: ${patient_name}
-Blood Group: ${blood_group}
-Hospital: ${hospital_name}
-Contact: ${contact_number}
-`
-);
+                "sbdehas@gmail.com",
+                "New Emergency Blood Request",
+                `
+                Patient: ${patient_name}
+                Blood Group: ${blood_group}
+                Hospital: ${hospital_name}
+                Contact: ${contact_number}
+                `
+            );
 
         }
     );
@@ -121,7 +121,7 @@ router.put("/approve/:id", (req, res) => {
         const request = result[0];
 
         console.log("REQUEST DATA:");
-console.log(request);
+        console.log(request);
 
         db.query(
             "UPDATE emergency_requests SET status='Approved' WHERE id=?",
@@ -136,7 +136,7 @@ console.log(request);
                 }
 
                 console.log("SENDING EMAIL TO:");
-console.log(request.email);
+                console.log(request.email);
 
                 sendEmail(
 
@@ -146,14 +146,14 @@ console.log(request.email);
 
                     `Hello,
 
-Your emergency blood request has been approved.
+                    Your emergency blood request has been approved.
 
-Patient: ${request.patient_name}
-Blood Group: ${request.blood_group}
-Hospital: ${request.hospital_name}
+                    Patient: ${request.patient_name}
+                    Blood Group: ${request.blood_group}
+                    Hospital: ${request.hospital_name}
 
-Thank you,
-SBDEHAS Team`
+                    Thank you,
+                    SBDEHAS Team`
 
                 );
 
@@ -203,10 +203,10 @@ router.put("/reject/:id", (req, res) => {
                 }
 
                 console.log("REJECT REQUEST DATA:");
-console.log(request);
+                console.log(request);
 
-console.log("SENDING REJECTION EMAIL TO:");
-console.log(request.email);
+                console.log("SENDING REJECTION EMAIL TO:");
+                console.log(request.email);
 
                 sendEmail(
 
@@ -216,15 +216,16 @@ console.log(request.email);
 
                     `Hello,
 
-Your emergency blood request has been rejected.
+                    Your emergency blood request has been rejected.
 
-Patient: ${request.patient_name}
-Blood Group: ${request.blood_group}
-Hospital: ${request.hospital_name}
+                    Patient: ${request.patient_name}
+                    Blood Group: ${request.blood_group}
+                    Hospital: ${request.hospital_name}
 
-Please contact the administrator for further assistance.
+                    Please contact the administrator for further assistance.
 
-SBDEHAS Team`
+                    Thank you,
+                    SBDEHAS Team`
 
                 );
 

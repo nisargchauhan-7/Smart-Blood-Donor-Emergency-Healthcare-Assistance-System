@@ -34,20 +34,20 @@ router.post("/register", (req, res) => {
             }
 
             sendEmail(
-    email,
-    "Welcome to SBDEHAS",
-    `Hello ${fullname},
+                email,
+                "Welcome to SBDEHAS",
+                `Hello ${fullname},
 
-Welcome to Smart Blood Donor & Emergency Healthcare Assistance System.
+                Welcome to Smart Blood Donor & Emergency Healthcare Assistance System.
 
-Your registration was successful.
+                Your registration was successful.
 
-Thank you for joining SBDEHAS.`
-);
+                Thank you for joining SBDEHAS.`
+            );
 
-res.json({
-    message: "User Registered Successfully"
-});
+            res.json({
+                message: "User Registered Successfully"
+            });
 
         }
     );

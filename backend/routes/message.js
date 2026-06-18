@@ -70,20 +70,19 @@ router.post("/", (req, res) => {
 
             sendEmail(
 
-    "sbdehas@gmail.com",
+                "sbdehas@gmail.com",
 
-    "New Contact Message",
+                "New Contact Message",
 
-    `
-Name: ${name}
+                `
+                Name: ${name}
 
-Email: ${email}
+                Email: ${email}
 
-Message:
-${message}
-`
+                Message:${message}
+                `
 
-);
+            );
 
             res.json({
                 message: "Message Sent Successfully"
