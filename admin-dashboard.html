@@ -172,43 +172,37 @@
 
         <hr class="mt-5">
 
-<h2 class="mb-4">
+        <h2 class="mb-4">Analytics Dashboard</h2>
 
-Analytics Dashboard
+        <div class="row">
 
-</h2>
+            <div class="col-md-6">
 
-<div class="row">
+                <div class="card shadow p-3">
 
-    <div class="col-md-6">
+                    <h5>Blood Group Distribution</h5>
 
-        <div class="card shadow p-3">
+                    <canvas id="bloodChart"></canvas>
 
-            <h5>Blood Group Distribution</h5>
+                </div>
 
-            <canvas id="bloodChart"></canvas>
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="card shadow p-3">
+
+                    <h5>System Statistics</h5>
+
+                    <canvas id="statsChart"></canvas>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
-
-    <div class="col-md-6">
-
-        <div class="card shadow p-3">
-
-            <h5>System Statistics</h5>
-
-            <canvas id="statsChart"></canvas>
-
-        </div>
-
-    </div>
-
-</div>
-
-        <h3 class="mt-5">
-            Recent Blood Requests
-        </h3>
+        <h3 class="mt-5">Recent Blood Requests</h3>
 
         <table class="table table-bordered">
 
@@ -238,67 +232,65 @@ Analytics Dashboard
 
         <div class="table-responsive">
 
-        <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Blood Group</th>
+                        <th>City</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="requestTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <h2 class="mt-5">Hospitals</h2>
+
+        <table class="table table-bordered">
 
             <thead>
 
                 <tr>
 
-                    <th>Name</th>
-                    <th>Blood Group</th>
+                    <th>Hospital Name</th>
                     <th>City</th>
-                    <th>Phone</th>
+                    <th>Available Beds</th>
+                    <th>Contact</th>
                     <th>Action</th>
 
                 </tr>
 
             </thead>
 
-            <tbody id="requestTable">
+            <tbody id="hospitalTable">
 
             </tbody>
 
         </table>
 
-        </div>
+        <h4 class="mt-4">Add Hospital</h4>
 
-        <h2 class="mt-5">Hospitals</h2>
+        <input type="text" id="hospitalName" placeholder="Hospital Name" class="form-control mb-2">
 
-<table class="table table-bordered">
+        <input type="text" id="hospitalCity" placeholder="City" class="form-control mb-2">
 
-    <thead>
+        <input type="number" id="hospitalBeds" placeholder="Available Beds" class="form-control mb-2">
 
-        <tr>
+        <input type="text" id="hospitalContact" placeholder="Contact" class="form-control mb-2">
 
-            <th>Hospital Name</th>
-            <th>City</th>
-            <th>Available Beds</th>
-            <th>Contact</th>
-            <th>Action</th>
-
-        </tr>
-
-    </thead>
-
-    <tbody id="hospitalTable">
-
-    </tbody>
-
-</table>
-
-<h4 class="mt-4">Add Hospital</h4>
-
-<input type="text" id="hospitalName" placeholder="Hospital Name" class="form-control mb-2">
-
-<input type="text" id="hospitalCity" placeholder="City" class="form-control mb-2">
-
-<input type="number" id="hospitalBeds" placeholder="Available Beds" class="form-control mb-2">
-
-<input type="text" id="hospitalContact" placeholder="Contact" class="form-control mb-2">
-
-<button class="btn btn-success" onclick="addHospital()">
-    Add Hospital
-</button>
+        <button class="btn btn-success" onclick="addHospital()">Add Hospital</button>
 
         <hr class="mt-5">
 
@@ -306,27 +298,27 @@ Analytics Dashboard
 
         <div class="table-responsive">
 
-        <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover">
 
-            <thead>
+                <thead>
 
-                <tr>
+                    <tr>
 
-                    <th>Patient</th>
-                    <th>Blood Group</th>
-                    <th>Hospital</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                        <th>Patient</th>
+                        <th>Blood Group</th>
+                        <th>Hospital</th>
+                        <th>Status</th>
+                        <th>Action</th>
 
-                </tr>
+                    </tr>
 
-            </thead>
+                </thead>
 
-            <tbody id="adminRequestTable">
+                <tbody id="adminRequestTable">
 
-            </tbody>
+                </tbody>
 
-        </table>
+            </table>
 
         </div>
 
@@ -340,74 +332,72 @@ Analytics Dashboard
 
     </div>
 
-<hr class="mt-5">
+    <hr class="mt-5">
 
-<h2 class="mb-3">Registered Users</h2>
+    <h2 class="mb-3">Registered Users</h2>
 
-<div class="table-responsive">
+    <div class="table-responsive">
 
-<table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover">
 
-    <thead>
+            <thead>
 
-        <tr>
+                <tr>
 
-            <th>ID</th>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Action</th>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
 
-        </tr>
+                </tr>
 
-    </thead>
+            </thead>
 
-    <tbody id="usersTable">
+            <tbody id="usersTable">
 
-    </tbody>
+            </tbody>
 
-</table>
+        </table>
 
-</div>
+    </div>
 
     <hr class="mt-5">
 
-<h2 class="mb-3">
-Contact Messages
-</h2>
+    <h2 class="mb-3">Contact Messages</h2>
 
-<div class="table-responsive">
+    <div class="table-responsive">
 
-<table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover">
 
-    <thead>
+            <thead>
 
-        <tr>
+                <tr>
 
-            <th>Name</th>
-            <th>Email</th>
-            <th>Subject</th>
-            <th>Message</th>
-            <th>Date</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Date</th>
 
-        </tr>
+                </tr>
 
-    </thead>
+            </thead>
 
-    <tbody id="messageTable">
+            <tbody id="messageTable">
 
-    </tbody>
+            </tbody>
 
-</table>
+        </table>
 
-</div>
+    </div>
 
-<button
-class="btn btn-danger"
-onclick="clearMessages()">
+    <button
+    class="btn btn-danger"
+    onclick="clearMessages()">
 
-Clear All Messages
+    Clear All Messages
 
-</button>
+    </button>
 
     <footer class="bg-dark text-white text-center py-4 mt-5">
 
@@ -426,283 +416,556 @@ Clear All Messages
     <script>
 
         if(localStorage.getItem("adminLoggedIn") !== "true")
-{
-    alert("Please Login First");
+        {
+            alert("Please Login First");
 
-    window.location.href =
-    "admin-login.html";
-}
+            window.location.href =
+            "admin-login.html";
+        }
 
-function logoutAdmin()
-{
-    localStorage.removeItem(
-        "adminLoggedIn"
-    );
+        function logoutAdmin()
+        {
+            localStorage.removeItem(
+                "adminLoggedIn"
+            );
 
-    window.location.href =
-    "index.html";
-}
+            window.location.href =
+            "index.html";
+        }
 
-function deleteDonor(id)
-{
-    if(confirm("Delete this donor?"))
-    {
-        fetch(`http://localhost:8000/api/donors/${id}`, {
-            method: "DELETE"
-        })
+        function deleteDonor(id)
+        {
+            if(confirm("Delete this donor?"))
+            {
+                fetch(`http://localhost:8000/api/donors/${id}`, {
+                    method: "DELETE"
+                })
+
+                .then(res => res.json())
+
+                .then(data => {
+
+                    alert(data.message);
+
+                    location.reload();
+
+                })
+
+                .catch(err => console.log(err));
+            }
+        }
+
+        function approveRequest(id)
+        {
+            fetch(`http://localhost:8000/api/requests/approve/${id}`, {
+
+                method: "PUT"
+
+            })
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                alert(data.message);
+
+                location.reload();
+
+            })
+
+            .catch(err => console.log(err));
+        }
+
+        function rejectRequest(id)
+        {
+            console.log("REJECT ID =", id);
+
+            if(!confirm("Reject this request?"))
+            {
+                return;
+            }
+
+            fetch(`http://localhost:8000/api/requests/reject/${id}`, {
+                method: "PUT"
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert(data.message);
+                location.reload();
+            })
+            .catch(err => console.log(err));
+        }
+
+        function deleteRequest(id)
+        {
+            if(!confirm("Delete this request?"))
+            {
+                return;
+            }
+
+            fetch(`http://localhost:8000/api/requests/${id}`, {
+
+                method: "DELETE"
+
+            })
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                alert(data.message);
+
+                location.reload();
+
+            })
+
+            .catch(err => console.log(err));
+        }
+
+        /* Total Donors */
+
+        fetch("http://localhost:8000/api/donors")
 
         .then(res => res.json())
 
         .then(data => {
 
-            alert(data.message);
-
-            location.reload();
+            document.getElementById("adminDonorCount")
+            .innerHTML = data.length;
 
         })
 
         .catch(err => console.log(err));
-    }
-}
 
-function approveRequest(id)
-{
-    fetch(`http://localhost:8000/api/requests/approve/${id}`, {
+        /* Total Requests */
 
-        method: "PUT"
+        fetch("http://localhost:8000/api/requests")
 
-    })
+        .then(res => res.json())
 
-    .then(res => res.json())
+        .then(data => {
 
-    .then(data => {
+            document.getElementById("adminRequestCount")
+            .innerHTML = data.length;
 
-        alert(data.message);
+        })
 
-        location.reload();
+        .catch(err => console.log(err));
 
-    })
+        /* Total Hospitals */
 
-    .catch(err => console.log(err));
-}
+        fetch("http://localhost:8000/api/hospitals")
 
-function rejectRequest(id)
-{
-    console.log("REJECT ID =", id);
+        .then(res => res.json())
 
-    if(!confirm("Reject this request?"))
-    {
-        return;
-    }
+        .then(data => {
 
-    fetch(`http://localhost:8000/api/requests/reject/${id}`, {
-        method: "PUT"
-    })
-    .then(res => res.json())
-    .then(data => {
-        alert(data.message);
-        location.reload();
-    })
-    .catch(err => console.log(err));
-}
+            document.getElementById("adminHospitalCount")
+            .innerHTML = data.length;
 
-function deleteRequest(id)
-{
-    if(!confirm("Delete this request?"))
-    {
-        return;
-    }
+        })
 
-    fetch(`http://localhost:8000/api/requests/${id}`, {
+        .catch(err => console.log(err));
 
-        method: "DELETE"
+        /* Total Beds */
 
-    })
+        fetch("http://localhost:8000/api/hospitals")
 
-    .then(res => res.json())
+        .then(res => res.json())
 
-    .then(data => {
+        .then(data => {
 
-        alert(data.message);
+            let beds = 0;
 
-        location.reload();
+            data.forEach(hospital => {
 
-    })
+                beds += Number(hospital.available_beds);
 
-    .catch(err => console.log(err));
-}
+            });
 
-        /* Total Donors */
+            document.getElementById("totalBeds")
+            .innerHTML = beds;
 
-fetch("http://localhost:8000/api/donors")
+        })
 
-.then(res => res.json())
+        .catch(err => console.log(err));
 
-.then(data => {
+        /* Registered Donors Table */
 
-    document.getElementById("adminDonorCount")
-    .innerHTML = data.length;
+        fetch("http://localhost:8000/api/donors")
 
-})
+        .then(res => res.json())
 
-.catch(err => console.log(err));
+        .then(data => {
 
-/* Total Requests */
+            let donorTable =
+            document.getElementById("requestTable");
 
-fetch("http://localhost:8000/api/requests")
+            donorTable.innerHTML = "";
 
-.then(res => res.json())
+            data.forEach(donor => {
 
-.then(data => {
+                donorTable.innerHTML += `
 
-    document.getElementById("adminRequestCount")
-    .innerHTML = data.length;
+                <tr>
 
-})
+                    <td>${donor.name}</td>
 
-.catch(err => console.log(err));
+                    <td>${donor.blood_group}</td>
 
-/* Total Hospitals */
+                    <td>${donor.city}</td>
 
-fetch("http://localhost:8000/api/hospitals")
+                    <td>${donor.phone}</td>
 
-.then(res => res.json())
+                    <td>
 
-.then(data => {
+                        <button
+                        class="btn btn-danger btn-sm"
+                        onclick="deleteDonor(${donor.id})">
 
-    document.getElementById("adminHospitalCount")
-    .innerHTML = data.length;
+                            Delete
 
-})
+                        </button>
 
-.catch(err => console.log(err));
+                    </td>
 
-/* Total Beds */
+                </tr>
 
-fetch("http://localhost:8000/api/hospitals")
+                `;
 
-.then(res => res.json())
+            });
 
-.then(data => {
+        });
 
-    let beds = 0;
+        /* Load Hospitals */
 
-    data.forEach(hospital => {
+        function loadHospitals()
+        {
+            fetch("http://localhost:8000/api/hospitals")
 
-        beds += Number(hospital.available_beds);
+            .then(res => res.json())
 
-    });
+            .then(data => {
 
-    document.getElementById("totalBeds")
-    .innerHTML = beds;
+                let table =
+                document.getElementById("hospitalTable");
 
-})
+                table.innerHTML = "";
 
-.catch(err => console.log(err));
+                data.forEach(hospital => {
 
-/* Registered Donors Table */
+                    table.innerHTML += `
 
-fetch("http://localhost:8000/api/donors")
+                    <tr>
 
-.then(res => res.json())
+                        <td>${hospital.hospital_name}</td>
 
-.then(data => {
+                        <td>${hospital.city}</td>
 
-    let donorTable =
-    document.getElementById("requestTable");
+                        <td>${hospital.available_beds}</td>
 
-    donorTable.innerHTML = "";
+                        <td>${hospital.contact}</td>
 
-    data.forEach(donor => {
+                        <td>
 
-        donorTable.innerHTML += `
+                            <button
+                            class="btn btn-success btn-sm"
+                            onclick="addBed(${hospital.id})">
 
-        <tr>
+                                +
 
-            <td>${donor.name}</td>
+                            </button>
 
-            <td>${donor.blood_group}</td>
+                            <button
+                            class="btn btn-warning btn-sm"
+                            onclick="removeBed(${hospital.id})">
 
-            <td>${donor.city}</td>
+                                -
 
-            <td>${donor.phone}</td>
+                            </button>
+                    
+                            <button
+                            class="btn btn-danger btn-sm"
+                            onclick="deleteHospital(${hospital.id})">
 
-            <td>
+                                Delete
 
-                <button
-                    class="btn btn-danger btn-sm"
-                    onclick="deleteDonor(${donor.id})">
+                            </button>
 
-                    Delete
+                        </td>
 
-                </button>
+                    </tr>
 
-            </td>
+                    `;
 
-        </tr>
+                });
 
-        `;
+            });
+        }
 
-    });
+        loadHospitals();
 
-});
+        /* Add Hospitals */
 
-/* Load Hospitals */
+        function addHospital()
+        {
+            fetch("http://localhost:8000/api/hospitals", {
 
-function loadHospitals()
-{
-    fetch("http://localhost:8000/api/hospitals")
+                method: "POST",
 
-    .then(res => res.json())
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-    .then(data => {
+                body: JSON.stringify({
 
-        let table =
-        document.getElementById("hospitalTable");
+                    hospital_name:
+                    document.getElementById("hospitalName").value,
 
-        table.innerHTML = "";
+                    city:
+                    document.getElementById("hospitalCity").value,
 
-        data.forEach(hospital => {
+                    available_beds:
+                    document.getElementById("hospitalBeds").value,
 
-            table.innerHTML += `
+                    contact:
+                    document.getElementById("hospitalContact").value
+
+                })
+
+            })
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                alert(data.message);
+
+                loadHospitals();
+
+            });
+
+        }
+
+        /* Delete Hospitals */
+
+        function deleteHospital(id)
+        {
+            if(confirm("Delete Hospital?"))
+            {
+                fetch(`http://localhost:8000/api/hospitals/${id}`, {
+
+                    method: "DELETE"
+
+                })
+
+                .then(res => res.json())
+
+                .then(data => {
+
+                    alert(data.message);
+
+                    loadHospitals();
+
+                });
+
+            }
+        }
+
+        /* Add Bed */
+
+        function addBed(id)
+        {
+            fetch(`http://localhost:8000/api/hospitals/addBeds/${id}`, {
+
+                method: "PUT"
+
+            })
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                alert(data.message);
+
+                loadHospitals();
+
+            });
+        }
+
+        /* Remove Bed */
+
+        function removeBed(id)
+        {
+            fetch(`http://localhost:8000/api/hospitals/removeBeds/${id}`, {
+
+                method: "PUT"
+
+            })
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                alert(data.message);
+
+                loadHospitals();
+
+            });
+        }
+
+        /* Emergency Requests Table */
+
+        fetch("http://localhost:8000/api/requests")
+
+        .then(res => res.json())
+
+        .then(data => {
+
+            let requestTable =
+            document.getElementById("adminRequestTable");
+
+            requestTable.innerHTML = "";
+
+            data.forEach(request => {
+
+                requestTable.innerHTML += `
+
+                <tr>
+
+                    <td>${request.patient_name}</td>
+
+                    <td>${request.blood_group}</td>
+
+                    <td>${request.hospital_name}</td>
+
+                    <td>${request.status}</td>
+
+                    <td>
+
+                        <button
+                        class="btn btn-success btn-sm"
+                        onclick="approveRequest(${request.id})">
+
+                            Approve
+
+                        </button>
+
+                        <button
+                        class="btn btn-warning btn-sm"
+                        onclick="rejectRequest(${request.id})">
+                
+                            Reject
+                
+                        </button>
+
+                        <button
+                        class="btn btn-danger btn-sm"
+                        onclick="deleteRequest(${request.id})">
+
+                            Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                `;
+
+            });
+
+        });
+
+        fetch("http://localhost:8000/api/donors")
+
+        .then(res => res.json())
+
+        .then(data => {
+
+            document.getElementById("activeDonors")
+            .innerHTML = data.length;
+
+        });
+
+        fetch("http://localhost:8000/api/requests")
+
+        .then(res => res.json())
+
+        .then(data => {
+
+            let pending =
+            data.filter(r =>
+                r.status === "Pending"
+            );
+
+            document.getElementById("pendingRequests")
+            .innerHTML = pending.length;
+
+        });
+
+        /* Clear Requests */
+
+        function clearRequests()
+        {
+            localStorage.removeItem("requests");
+
+            alert("All Requests Cleared");
+
+            location.reload();
+        }
+
+        /* Admin Logout */
+
+        function adminLogout()
+        {
+            localStorage.removeItem(
+                "adminLoggedIn"
+            );
+
+            window.location.href =
+            "index.html";
+        }
+
+        /* Admin Protection */
+
+        let adminLoggedIn =
+        localStorage.getItem("adminLoggedIn");
+
+        if(adminLoggedIn !== "true")
+        {
+            alert("Admin Login Required");
+
+            window.location.href =
+            "admin-login.html";
+        }
+
+        let messages =
+        JSON.parse(
+            localStorage.getItem("messages")
+        )
+        || [];
+
+        let messageTable =
+        document.getElementById(
+            "messageTable"
+        );
+
+        messages.forEach(message => {
+
+            messageTable.innerHTML += `
 
             <tr>
 
-                <td>${hospital.hospital_name}</td>
+                <td>${message.name}</td>
 
-                <td>${hospital.city}</td>
+                <td>${message.email}</td>
 
-                <td>${hospital.available_beds}</td>
+                <td>${message.subject}</td>
 
-                <td>${hospital.contact}</td>
+                <td>${message.message}</td>
 
-                <td>
-
-                    <button
-                    class="btn btn-success btn-sm"
-                    onclick="addBed(${hospital.id})">
-
-                    +
-
-                    </button>
-
-                    <button
-                    class="btn btn-warning btn-sm"
-                    onclick="removeBed(${hospital.id})">
-
-                    -
-
-                    </button>
-                    
-                    <button
-                    class="btn btn-danger btn-sm"
-                    onclick="deleteHospital(${hospital.id})">
-
-                    Delete
-
-                    </button>
-
-                </td>
+                <td>${message.date}</td>
 
             </tr>
 
@@ -710,526 +973,256 @@ function loadHospitals()
 
         });
 
-    });
-}
+        function clearMessages()
+        {
+            if(confirm("Delete all messages?"))
+            {
+                fetch("http://localhost:8000/api/messages")
 
-loadHospitals();
+                .then(res => res.json())
 
-/* Add Hospitals */
+                .then(data => {
 
-function addHospital()
-{
-    fetch("http://localhost:8000/api/hospitals", {
+                    data.forEach(msg => {
 
-        method: "POST",
+                        fetch(
+                        `http://localhost:8000/api/messages/${msg.id}`,
+                        {
+                            method: "DELETE"
+                        }
+                        );
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+                    });
 
-        body: JSON.stringify({
 
-            hospital_name:
-            document.getElementById("hospitalName").value,
+                    setTimeout(() => {
 
-            city:
-            document.getElementById("hospitalCity").value,
+                        location.reload();
 
-            available_beds:
-            document.getElementById("hospitalBeds").value,
+                    }, 500);
 
-            contact:
-            document.getElementById("hospitalContact").value
+                });
 
-        })
+            }
+        }
 
-    })
+        function deleteUser(id)
+        {
+            if(confirm("Delete this user?"))
+            {
+                fetch(
+                `http://localhost:8000/api/users/${id}`,
+                {
+                    method: "DELETE"
+                }
+                )
 
-    .then(res => res.json())
+                .then(res => res.json())
 
-    .then(data => {
+                .then(data => {
 
-        alert(data.message);
+                    alert(data.message);
 
-        loadHospitals();
+                    location.reload();
 
-    });
+                })
 
-}
+                .catch(err => console.log(err));
+            }
+        }
 
-/* Delete Hospitals */
+        /* Contact Messages */
 
-function deleteHospital(id)
-{
-    if(confirm("Delete Hospital?"))
-    {
-        fetch(`http://localhost:8000/api/hospitals/${id}`, {
-
-            method: "DELETE"
-
-        })
-
-        .then(res => res.json())
-
-        .then(data => {
-
-            alert(data.message);
-
-            loadHospitals();
-
-        });
-
-    }
-}
-
-/* Add Bed */
-
-function addBed(id)
-{
-    fetch(`http://localhost:8000/api/hospitals/addBeds/${id}`, {
-
-        method: "PUT"
-
-    })
-
-    .then(res => res.json())
-
-    .then(data => {
-
-        alert(data.message);
-
-        loadHospitals();
-
-    });
-}
-
-/* Remove Bed */
-
-function removeBed(id)
-{
-    fetch(`http://localhost:8000/api/hospitals/removeBeds/${id}`, {
-
-        method: "PUT"
-
-    })
-
-    .then(res => res.json())
-
-    .then(data => {
-
-        alert(data.message);
-
-        loadHospitals();
-
-    });
-}
-
-/* Emergency Requests Table */
-
-fetch("http://localhost:8000/api/requests")
-
-.then(res => res.json())
-
-.then(data => {
-
-    let requestTable =
-    document.getElementById("adminRequestTable");
-
-    requestTable.innerHTML = "";
-
-    data.forEach(request => {
-
-        requestTable.innerHTML += `
-
-        <tr>
-
-            <td>${request.patient_name}</td>
-
-            <td>${request.blood_group}</td>
-
-            <td>${request.hospital_name}</td>
-
-            <td>${request.status}</td>
-
-            <td>
-
-                <button
-                class="btn btn-success btn-sm"
-                onclick="approveRequest(${request.id})">
-
-                    Approve
-
-                </button>
-
-                <button
-                class="btn btn-warning btn-sm"
-                onclick="rejectRequest(${request.id})">
-                Reject
-                </button>
-
-                <button
-                class="btn btn-danger btn-sm"
-                onclick="deleteRequest(${request.id})">
-
-                    Delete
-
-                </button>
-
-            </td>
-
-        </tr>
-
-        `;
-
-    });
-
-});
-
-fetch("http://localhost:8000/api/donors")
-
-.then(res => res.json())
-
-.then(data => {
-
-    document.getElementById("activeDonors")
-    .innerHTML = data.length;
-
-});
-
-fetch("http://localhost:8000/api/requests")
-
-.then(res => res.json())
-
-.then(data => {
-
-    let pending =
-    data.filter(r =>
-        r.status === "Pending"
-    );
-
-    document.getElementById("pendingRequests")
-    .innerHTML = pending.length;
-
-});
-
-/* Clear Requests */
-
-function clearRequests()
-{
-localStorage.removeItem("requests");
-
-alert("All Requests Cleared");
-
-location.reload();
-}
-
-/* Admin Logout */
-
-function adminLogout()
-{
-    localStorage.removeItem(
-        "adminLoggedIn"
-    );
-
-    window.location.href =
-    "index.html";
-}
-
-/* Admin Protection */
-
-let adminLoggedIn =
-localStorage.getItem("adminLoggedIn");
-
-if(adminLoggedIn !== "true")
-{
-alert("Admin Login Required");
-
-window.location.href =
-"admin-login.html";
-}
-
-let messages =
-JSON.parse(
-    localStorage.getItem("messages")
-)
-|| [];
-
-let messageTable =
-document.getElementById(
-    "messageTable"
-);
-
-messages.forEach(message => {
-
-    messageTable.innerHTML += `
-
-    <tr>
-
-        <td>${message.name}</td>
-
-        <td>${message.email}</td>
-
-        <td>${message.subject}</td>
-
-        <td>${message.message}</td>
-
-        <td>${message.date}</td>
-
-    </tr>
-
-    `;
-
-});
-
-function clearMessages()
-{
-    if(confirm("Delete all messages?"))
-    {
         fetch("http://localhost:8000/api/messages")
 
         .then(res => res.json())
 
         .then(data => {
 
+            document
+            .getElementById("adminMessageCount")
+            .innerHTML = data.length;
+
+            let messageTable =
+            document.getElementById("messageTable");
+
+            messageTable.innerHTML = "";
+
             data.forEach(msg => {
 
-                fetch(
-                    `http://localhost:8000/api/messages/${msg.id}`,
-                    {
-                        method: "DELETE"
-                    }
-                );
+                messageTable.innerHTML += `
+
+                <tr>
+
+                    <td>${msg.name}</td>
+
+                    <td>${msg.email}</td>
+
+                    <td>${msg.subject}</td>
+
+                    <td>${msg.message}</td>
+
+                    <td>
+                        ${msg.created_at ?
+                        new Date(msg.created_at).toLocaleDateString() :
+                        "-"}
+                    </td>
+
+                </tr>
+
+                `;
 
             });
 
-            setTimeout(() => {
+        })
 
-                location.reload();
+        .catch(err => console.log(err));
 
-            }, 500);
+        /* Load Users */
 
-        });
-
-    }
-}
-
-function deleteUser(id)
-{
-    if(confirm("Delete this user?"))
-    {
-        fetch(
-            `http://localhost:8000/api/users/${id}`,
-            {
-                method: "DELETE"
-            }
-        )
+        fetch("http://localhost:8000/api/users")
 
         .then(res => res.json())
 
         .then(data => {
 
-            alert(data.message);
+            let usersTable =
+            document.getElementById("usersTable");
 
-            location.reload();
+            usersTable.innerHTML = "";
 
-        })
+            data.forEach(user => {
 
-        .catch(err => console.log(err));
-    }
-}
+                usersTable.innerHTML += `
 
-/* Contact Messages */
+                <tr>
 
-fetch("http://localhost:8000/api/messages")
+                    <td>${user.id}</td>
 
-.then(res => res.json())
+                    <td>${user.fullname}</td>
 
-.then(data => {
+                    <td>${user.email}</td>
 
-    document
-    .getElementById("adminMessageCount")
-    .innerHTML = data.length;
+                    <td>
 
-    let messageTable =
-    document.getElementById("messageTable");
+                        <button
+                        class="btn btn-danger btn-sm"
+                        onclick="deleteUser(${user.id})">
 
-    messageTable.innerHTML = "";
+                            Delete
 
-    data.forEach(msg => {
+                        </button>
 
-        messageTable.innerHTML += `
+                    </td>
 
-        <tr>
+                </tr>
 
-            <td>${msg.name}</td>
+                `;
 
-            <td>${msg.email}</td>
+            });
 
-            <td>${msg.subject}</td>
+        });
 
-            <td>${msg.message}</td>
+        fetch("http://localhost:8000/api/donors")
 
-            <td>
-                ${msg.created_at ?
-                new Date(msg.created_at).toLocaleDateString() :
-                "-"}
-            </td>
+        .then(res => res.json())
 
-        </tr>
+        .then(data => {
 
-        `;
+            let bloodGroups = {};
 
-    });
+            data.forEach(donor => {
 
-})
+                let group = donor.blood_group;
 
-.catch(err => console.log(err));
+                bloodGroups[group] =
+                (bloodGroups[group] || 0) + 1;
 
-/* Load Users */
+            });
 
-fetch("http://localhost:8000/api/users")
+            new Chart(
 
-.then(res => res.json())
+                document.getElementById("bloodChart"),
 
-.then(data => {
+                {
 
-    let usersTable =
-    document.getElementById("usersTable");
+                    type: "pie",
 
-    usersTable.innerHTML = "";
+                    data: {
 
-    data.forEach(user => {
+                        labels:
+                        Object.keys(bloodGroups),
 
-        usersTable.innerHTML += `
+                        datasets: [{
 
-        <tr>
+                            data:
+                            Object.values(bloodGroups)
 
-            <td>${user.id}</td>
+                        }]
 
-            <td>${user.fullname}</td>
+                    }
 
-            <td>${user.email}</td>
+                }
 
-            <td>
+            );
 
-                <button
-                class="btn btn-danger btn-sm"
-                onclick="deleteUser(${user.id})">
+        }); 
 
-                Delete
+        Promise.all([
 
-                </button>
+            fetch("http://localhost:8000/api/donors")
+            .then(res => res.json()),
 
-            </td>
+            fetch("http://localhost:8000/api/requests")
+            .then(res => res.json()),
 
-        </tr>
+            fetch("http://localhost:8000/api/hospitals")
+            .then(res => res.json())
 
-        `;
+        ])
 
-    });
+        .then(([donors, requests, hospitals]) => {
 
-});
+            new Chart(
 
-fetch("http://localhost:8000/api/donors")
+                document.getElementById("statsChart"),
 
-.then(res => res.json())
+                {
 
-.then(data => {
+                    type: "bar",
 
-    let bloodGroups = {};
+                    data: {
 
-    data.forEach(donor => {
+                        labels: [
 
-        let group = donor.blood_group;
+                            "Donors",
+                            "Requests",
+                            "Hospitals"
 
-        bloodGroups[group] =
-        (bloodGroups[group] || 0) + 1;
+                        ],
 
-    });
+                        datasets: [{
 
-    new Chart(
+                            label:
+                            "System Data",
 
-        document.getElementById("bloodChart"),
+                            data: [
 
-        {
+                                donors.length,
+                                requests.length,
+                                hospitals.length
 
-            type: "pie",
+                            ]
 
-            data: {
+                        }]
 
-                labels:
-                Object.keys(bloodGroups),
+                    }
 
-                datasets: [{
+                }
 
-                    data:
-                    Object.values(bloodGroups)
+            );
 
-                }]
-
-            }
-
-        }
-
-    );
-
-});
-
-Promise.all([
-
-    fetch("http://localhost:8000/api/donors")
-    .then(res => res.json()),
-
-    fetch("http://localhost:8000/api/requests")
-    .then(res => res.json()),
-
-    fetch("http://localhost:8000/api/hospitals")
-    .then(res => res.json())
-
-])
-
-.then(([donors, requests, hospitals]) => {
-
-    new Chart(
-
-        document.getElementById("statsChart"),
-
-        {
-
-            type: "bar",
-
-            data: {
-
-                labels: [
-
-                    "Donors",
-                    "Requests",
-                    "Hospitals"
-
-                ],
-
-                datasets: [{
-
-                    label:
-                    "System Data",
-
-                    data: [
-
-                        donors.length,
-                        requests.length,
-                        hospitals.length
-
-                    ]
-
-                }]
-
-            }
-
-        }
-
-    );
-
-});
+        });
 
 </script>
 
