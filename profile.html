@@ -3,331 +3,321 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Profile</title>
+    <title>My Profile</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
 
-<div class="container">
+        <div class="container">
 
-<a class="navbar-brand" href="index.html">
-SBDEHAS
-</a>
+            <a class="navbar-brand" href="index.html">SBDEHAS</a>
 
-<div>
+            <div>
 
-<a href="dashboard.html" class="btn btn-light btn-sm me-2">
-Dashboard
-</a>
+                <a href="dashboard.html" class="btn btn-light btn-sm me-2">Dashboard</a>
 
-<button
-class="btn btn-light btn-sm"
-onclick="userLogout()">
+                <button
+                class="btn btn-light btn-sm"
+                onclick="userLogout()">
 
-Logout
+                    Logout
 
-</button>
+                </button>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</nav>
+    </nav>
 
-<div class="container mt-5">
+    <div class="container mt-5">
 
-<div class="row justify-content-center">
+        <div class="row justify-content-center">
 
-<div class="col-md-6">
+            <div class="col-md-6">
 
-<div class="card shadow">
+                <div class="card shadow">
 
-<div class="card-body">
+                    <div class="card-body">
 
-<h2 class="text-center text-danger mb-4">
+                        <h2 class="text-center text-danger mb-4">My Profile</h2>
 
-My Profile
+                        <table class="table">
 
-</h2>
+                            <tr>
+                                <th>Full Name</th>
+                                <td id="profileName"></td>
+                            </tr>
 
-<table class="table">
+                            <tr>
+                                <th>Email</th>
+                                <td id="profileEmail"></td>
+                            </tr>
 
-<tr>
-<th>Full Name</th>
-<td id="profileName"></td>
-</tr>
+                            <tr>
+                                <th>User ID</th>
+                                <td id="profileId"></td>
+                            </tr>
 
-<tr>
-<th>Email</th>
-<td id="profileEmail"></td>
-</tr>
+                            <tr>
+                                <td colspan="2" class="text-center">
 
-<tr>
-<th>User ID</th>
-<td id="profileId"></td>
-</tr>
+                                    <button
+                                    class="btn btn-danger"
+                                    onclick="editProfile()">
 
-<tr>
-    <td colspan="2" class="text-center">
+                                        Edit Profile
 
-        <button
-        class="btn btn-danger"
-        onclick="editProfile()">
+                                    </button>
 
-            Edit Profile
+                                </td>
+                            </tr>
 
-        </button>
+                        </table>
 
-    </td>
-</tr>
+                        <hr>
 
-</table>
+                        <h4 class="text-danger mt-4">Change Password</h4>
 
-<hr>
+                        <input
+                        type="password"
+                        id="oldPassword"
+                        class="form-control mb-3"
+                        placeholder="Current Password">
 
-<h4 class="text-danger mt-4">
-Change Password
-</h4>
+                        <input
+                        type="password"
+                        id="newPassword"
+                        class="form-control mb-3"
+                        placeholder="New Password">
 
-<input
-type="password"
-id="oldPassword"
-class="form-control mb-3"
-placeholder="Current Password">
+                        <button
+                        class="btn btn-danger"
+                        onclick="changePassword()">
 
-<input
-type="password"
-id="newPassword"
-class="form-control mb-3"
-placeholder="New Password">
+                            Change Password
 
-<button
-class="btn btn-danger"
-onclick="changePassword()">
+                        </button>
 
-Change Password
+                        <div id="editSection" style="display:none;">
 
-</button>
+                            <div class="mt-4">
 
-<div id="editSection" style="display:none;">
+                                <input
+                                type="text"
+                                id="editName"
+                                class="form-control mb-2"
+                                placeholder="Full Name">
 
-    <div class="mt-4">
+                                <input
+                                type="email"
+                                id="editEmail"
+                                class="form-control mb-2"
+                                placeholder="Email">
 
-        <input
-        type="text"
-        id="editName"
-        class="form-control mb-2"
-        placeholder="Full Name">
+                                <button
+                                class="btn btn-success"
+                                onclick="updateProfile()">
 
-        <input
-        type="email"
-        id="editEmail"
-        class="form-control mb-2"
-        placeholder="Email">
+                                    Save Changes
 
-        <button
-        class="btn btn-success"
-        onclick="updateProfile()">
+                                </button>
 
-            Save Changes
+                            </div>
 
-        </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-</div>
+    <footer class="bg-dark text-white text-center py-4 mt-5">
 
-</div>
+        <p class="mb-0">
 
-</div>
+            © 2026 Smart Blood Donor & Emergency Healthcare Assistance System
 
-</div>
+        </p>
 
-</div>
+    </footer>
 
-</div>
+    <script>
 
-<footer class="bg-dark text-white text-center py-4 mt-5">
-
-<p class="mb-0">
-
-© 2026 Smart Blood Donor & Emergency Healthcare Assistance System
-
-</p>
-
-</footer>
-
-<script>
-
-let currentUser =
-JSON.parse(
-localStorage.getItem("currentUser")
-);
-
-if(!currentUser)
-{
-    alert("Please Login First");
-
-    window.location.href =
-    "login.html";
-}
-
-document.getElementById("profileName")
-.innerHTML =
-currentUser.fullname;
-
-document.getElementById("profileEmail")
-.innerHTML =
-currentUser.email;
-
-document.getElementById("profileId")
-.innerHTML =
-currentUser.id;
-
-function userLogout()
-{
-    localStorage.removeItem(
-        "currentUser"
-    );
-
-    window.location.href =
-    "index.html";
-}
-
-function editProfile()
-{
-    document
-    .getElementById("editSection")
-    .style.display = "block";
-
-    document
-    .getElementById("editName")
-    .value = currentUser.fullname;
-
-    document
-    .getElementById("editEmail")
-    .value = currentUser.email;
-}
-
-function updateProfile()
-{
-    fetch(
-        `http://localhost:8000/api/users/update-profile/${currentUser.id}`,
-        {
-            method: "PUT",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-
-                fullname:
-                document.getElementById("editName").value,
-
-                email:
-                document.getElementById("editEmail").value
-
-            })
-        }
-    )
-
-    .then(res => res.json())
-
-    .then(data => {
-
-        currentUser.fullname =
-        document.getElementById("editName").value;
-
-        currentUser.email =
-        document.getElementById("editEmail").value;
-
-        localStorage.setItem(
-            "currentUser",
-            JSON.stringify(currentUser)
+        let currentUser =
+        JSON.parse(
+            localStorage.getItem("currentUser")
         );
 
-        alert(data.message);
-
-        location.reload();
-
-    })
-
-    .catch(err => {
-
-        console.log(err);
-
-        alert("Update Failed");
-
-    });
-}
-
-function changePassword()
-{
-    let oldPassword =
-    document.getElementById("oldPassword").value;
-
-    let newPassword =
-    document.getElementById("newPassword").value;
-
-    fetch(
-        `http://localhost:8000/api/users/change-password/${currentUser.id}`,
+        if(!currentUser)
         {
+            alert("Please Login First");
 
-            method: "PUT",
+            window.location.href =
+            "login.html";
+        }
 
-            headers: {
-                "Content-Type":
-                "application/json"
-            },
+        document.getElementById("profileName")
+        .innerHTML =
+        currentUser.fullname;
 
-            body: JSON.stringify({
+        document.getElementById("profileEmail")
+        .innerHTML =
+        currentUser.email;
 
-                oldPassword,
-                newPassword
+        document.getElementById("profileId")
+        .innerHTML =
+        currentUser.id;
+
+        function userLogout()
+        {
+            localStorage.removeItem(
+                "currentUser"
+            );
+
+            window.location.href =
+            "index.html";
+        }
+
+        function editProfile()
+        {
+            document
+            .getElementById("editSection")
+            .style.display = "block";
+
+            document
+            .getElementById("editName")
+            .value = currentUser.fullname;
+
+            document
+            .getElementById("editEmail")
+            .value = currentUser.email;
+        }
+
+        function updateProfile()
+        {
+            fetch(
+                `http://localhost:8000/api/users/update-profile/${currentUser.id}`,
+                {
+                    method: "PUT",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        fullname:
+                        document.getElementById("editName").value,
+
+                        email:
+                        document.getElementById("editEmail").value
+
+                    })
+                }
+            )
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                currentUser.fullname =
+                document.getElementById("editName").value;
+
+                currentUser.email =
+                document.getElementById("editEmail").value;
+
+                localStorage.setItem(
+                    "currentUser",
+                    JSON.stringify(currentUser)
+                );
+
+                alert(data.message);
+
+                location.reload();
 
             })
 
+            .catch(err => {
+
+                console.log(err);
+
+                alert("Update Failed");
+
+            });
         }
-    )
 
-    .then(res => res.json())
+        function changePassword()
+        {
+            let oldPassword =
+            document.getElementById("oldPassword").value;
 
-    .then(data => {
+            let newPassword =
+            document.getElementById("newPassword").value;
 
-        alert(data.message);
+            fetch(
+                `http://localhost:8000/api/users/change-password/${currentUser.id}`,
+                {
 
-        document
-        .getElementById("oldPassword")
-        .value = "";
+                    method: "PUT",
 
-        document
-        .getElementById("newPassword")
-        .value = "";
+                    headers: {
+                        "Content-Type":
+                        "application/json"
+                    },
 
-    })
+                    body: JSON.stringify({
 
-    .catch(err => {
+                        oldPassword,
+                        newPassword
 
-        console.log(err);
+                    })
 
-        alert("Password Change Failed");
+                }
+            )
 
-    });
+            .then(res => res.json())
 
-}
+            .then(data => {
 
-</script>
+                alert(data.message);
+
+                document
+                .getElementById("oldPassword")
+                .value = "";
+
+                document
+                .getElementById("newPassword")
+                .value = "";
+
+            })
+
+            .catch(err => {
+
+                console.log(err);
+
+                alert("Password Change Failed");
+
+            });
+
+        }
+
+    </script>
 
 </body>
 </html>

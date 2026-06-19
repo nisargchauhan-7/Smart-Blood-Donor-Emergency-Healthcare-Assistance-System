@@ -39,13 +39,12 @@
 
                 </a>
 
-                <a
-href="request-history.html"
-class="btn btn-light btn-sm me-2">
+                <a href="request-history.html"
+                class="btn btn-light btn-sm me-2">
 
-Request History
+                    Request History
 
-</a>
+                </a>
 
                 <button
                 class="btn btn-light btn-sm me-2"
@@ -251,65 +250,65 @@ Request History
 
     <script>
 
-let currentUser =
-JSON.parse(
-localStorage.getItem("currentUser")
-);
+        let currentUser =
+        JSON.parse(
+            localStorage.getItem("currentUser")
+        );
 
-if(!currentUser)
-{
-    alert("Please Login First");
+        if(!currentUser)
+        {
+            alert("Please Login First");
 
-    window.location.href =
-    "login.html";
-}
+            window.location.href =
+            "login.html";
+        }
 
-/* Welcome User */
+        /* Welcome User */
 
-document.getElementById("welcomeUser")
-.innerHTML =
-"Welcome, " + currentUser.fullname;
+        document.getElementById("welcomeUser")
+        .innerHTML =
+        "Welcome, " + currentUser.fullname;
 
-/* Total Donors */
+        /* Total Donors */
 
-fetch("http://localhost:8000/api/donors")
-.then(res => res.json())
-.then(data => {
+        fetch("http://localhost:8000/api/donors")
+        .then(res => res.json())
+        .then(data => {
 
-    document.getElementById("totalDonors")
-    .innerHTML = data.length;
+            document.getElementById("totalDonors")
+            .innerHTML = data.length;
 
-})
-.catch(err => console.log(err));
+        })
+        .catch(err => console.log(err));
 
-/* Total Requests */
+        /* Total Requests */
 
-fetch("http://localhost:8000/api/requests")
+        fetch("http://localhost:8000/api/requests")
 
-.then(res => res.json())
+        .then(res => res.json())
 
-.then(data => {
+        .then(data => {
 
-    document.getElementById("totalRequests")
-    .innerHTML = data.length;
+            document.getElementById("totalRequests")
+            .innerHTML = data.length;
 
-})
+        })
 
-.catch(err => console.log(err));
+        .catch(err => console.log(err));
 
-/* Logout */
+        /* Logout */
 
-function logout()
-{
-    localStorage.removeItem("currentUser");
+        function logout()
+        {
+            localStorage.removeItem("currentUser");
 
-    alert("Logged Out Successfully");
+            alert("Logged Out Successfully");
 
-    window.location.href =
-    "index.html";
-}
+            window.location.href =
+            "index.html";
+        }
 
-</script>
+    </script>
 
 </body>
 

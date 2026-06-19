@@ -183,69 +183,69 @@
     <script>
 
         document
-.getElementById("emergencyForm")
-.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    fetch("http://localhost:8000/api/requests", {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-
-            user_id: currentUser ? currentUser.id : null,
-
-    patient_name:
-    document.getElementById("patientName").value,
-
-    blood_group:
-    document.getElementById("bloodGroup").value,
-
-    hospital_name:
-    document.getElementById("hospitalName").value,
-
-    contact_number:
-    document.getElementById("contactNumber").value
-
-})
-
-    })
-
-    .then(res => res.json())
-
-    .then(data => {
-
-        alert(data.message);
-
-        document
         .getElementById("emergencyForm")
-        .reset();
+        .addEventListener("submit", function(e){
 
-    })
+            e.preventDefault();
 
-    .catch(error => {
+            fetch("http://localhost:8000/api/requests", {
 
-        console.log(error);
+                method: "POST",
 
-        alert("Request Failed");
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-    });
+                body: JSON.stringify({
 
-});
+                    user_id: currentUser ? currentUser.id : null,
+
+                    patient_name:
+                    document.getElementById("patientName").value,
+
+                    blood_group:
+                    document.getElementById("bloodGroup").value,
+
+                    hospital_name:
+                    document.getElementById("hospitalName").value,
+
+                    contact_number:
+                    document.getElementById("contactNumber").value
+
+                })
+
+            })
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                alert(data.message);
+
+                document
+                .getElementById("emergencyForm")
+                .reset();
+
+            })
+
+            .catch(error => {
+
+                console.log(error);
+
+                alert("Request Failed");
+
+            });
+
+        });
 
         let currentUser =
-JSON.parse(localStorage.getItem("currentUser"));
+        JSON.parse(localStorage.getItem("currentUser"));
 
         console.log(currentUser);
         console.log(currentUser.id);
 
-let loginBtn =
-document.getElementById("loginBtn");
+        let loginBtn =
+        document.getElementById("loginBtn");
 
         if(currentUser)
         {

@@ -151,44 +151,44 @@
     <script>
 
         document.getElementById("registerForm")
-.addEventListener("submit", async function(e){
+        .addEventListener("submit", async function(e){
 
-    e.preventDefault();
+            e.preventDefault();
 
-    const donor = {
-        name: document.getElementById("name").value,
-        blood: document.getElementById("blood").value,
-        phone: document.getElementById("phone").value,
-        city: document.getElementById("city").value
-    };
+            const donor = {
+                name: document.getElementById("name").value,
+                blood: document.getElementById("blood").value,
+                phone: document.getElementById("phone").value,
+                city: document.getElementById("city").value
+            };
 
-    try {
+            try {
 
-        const response = await fetch(
-            "http://localhost:8000/api/donors/register",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(donor)
+                const response = await fetch(
+                    "http://localhost:8000/api/donors/register",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(donor)
+                    }
+                );
+
+                const data = await response.json();
+
+                    alert(data.message);
+
+                    this.reset();
+
             }
-        );
+            catch(error)
+            {
+                console.log(error);
+                alert("Registration Failed");
+            }
 
-        const data = await response.json();
-
-        alert(data.message);
-
-        this.reset();
-
-    }
-    catch(error)
-    {
-        console.log(error);
-        alert("Registration Failed");
-    }
-
-});
+        });
 
         currentUser =
         localStorage.getItem("currentUser");

@@ -173,76 +173,76 @@
 
     <script>
 
-let allHospitals = [];
+        let allHospitals = [];
 
-function showHospitals(data)
-{
-    let hospitalTable =
-    document.getElementById("hospitalTable");
+        function showHospitals(data)
+        {
+            let hospitalTable =
+            document.getElementById("hospitalTable");
 
-    hospitalTable.innerHTML = "";
+            hospitalTable.innerHTML = "";
 
-    data.forEach(hospital => {
+            data.forEach(hospital => {
 
-        hospitalTable.innerHTML += `
+                hospitalTable.innerHTML += `
 
-        <tr>
+                <tr>
 
-            <td>${hospital.hospital_name}</td>
+                    <td>${hospital.hospital_name}</td>
 
-            <td>${hospital.city}</td>
+                    <td>${hospital.city}</td>
 
-            <td>${hospital.available_beds}</td>
+                    <td>${hospital.available_beds}</td>
 
-            <td>${hospital.contact}</td>
+                    <td>${hospital.contact}</td>
 
-        </tr>
+                </tr>
 
-        `;
+                `;
 
-    });
-}
+            });
+        }
 
-fetch("http://localhost:8000/api/hospitals")
+        fetch("http://localhost:8000/api/hospitals")
 
-.then(res => res.json())
+        .then(res => res.json())
 
-.then(data => {
+        .then(data => {
 
-    allHospitals = data;
+            allHospitals = data;
 
-    showHospitals(data);
+            showHospitals(data);
 
-})
+        })
 
-.catch(err => console.log(err));
+        .catch(err => console.log(err));
 
-function searchHospital()
-{
-    let city =
-    document.getElementById("city")
-    .value
-    .toLowerCase();
+        function searchHospital()
+        {
+            let city =
+            document.getElementById("city")
+            .value
+            .toLowerCase();
 
-    let filtered =
-    allHospitals.filter(hospital =>
+            let filtered =
+            allHospitals.filter(hospital =>
 
-        hospital.city
-        .toLowerCase()
-        .includes(city)
+                hospital.city
+                .toLowerCase()
+                .includes(city)
 
-    );
+            );
 
-    showHospitals(filtered);
-}
+            showHospitals(filtered);
+        }
 
-let currentUser =
-JSON.parse(localStorage.getItem("currentUser"));
+        let currentUser =
+        JSON.parse(localStorage.getItem("currentUser"));
 
-let loginBtn =
-document.getElementById("loginBtn");
+        let loginBtn =
+        document.getElementById("loginBtn");
 
-if(currentUser)
+        if(currentUser)
         {
             loginBtn.innerHTML =
             "Dashboard";
@@ -250,7 +250,7 @@ if(currentUser)
             loginBtn.href =
             "dashboard.html";
         }
-</script>
+    </script>
 
 </body>
 

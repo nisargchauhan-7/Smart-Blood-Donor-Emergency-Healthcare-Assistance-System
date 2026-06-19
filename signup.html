@@ -151,68 +151,68 @@
 
     <script>
 
-document.getElementById("signupForm")
-.addEventListener("submit", async function(e){
+        document.getElementById("signupForm")
+        .addEventListener("submit", async function(e){
 
-    e.preventDefault();
+            e.preventDefault();
 
-    let fullname =
-    document.getElementById("fullName").value;
+            let fullname =
+            document.getElementById("fullName").value;
 
-    let email =
-    document.getElementById("email").value;
+            let email =
+            document.getElementById("email").value;
 
-    let password =
-    document.getElementById("password").value;
+            let password =
+            document.getElementById("password").value;
 
-    let confirmPassword =
-    document.getElementById("confirmPassword").value;
+            let confirmPassword =
+            document.getElementById("confirmPassword").value;
 
-    if(password !== confirmPassword)
-    {
-        alert("Passwords do not match");
-        return;
-    }
-
-    if(password.length < 6)
-    {
-        alert("Password must be at least 6 characters");
-        return;
-    }
-
-    try {
-
-        const response = await fetch(
-            "http://localhost:8000/api/users/register",
+            if(password !== confirmPassword)
             {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    fullname,
-                    email,
-                    password
-                })
+                alert("Passwords do not match");
+                return;
             }
-        );
 
-        const data = await response.json();
+            if(password.length < 6)
+            {
+                alert("Password must be at least 6 characters");
+                return;
+            }
 
-        alert(data.message);
+            try {
 
-        window.location.href = "login.html";
+                const response = await fetch(
+                    "http://localhost:8000/api/users/register",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            fullname,
+                            email,
+                            password
+                        })
+                    }
+                );
 
-    }
-    catch(error)
-    {
-        console.log(error);
-        alert("Registration Failed");
-    }
+                const data = await response.json();
 
-});
+                alert(data.message);
 
-</script>
+                window.location.href = "login.html";
+
+            }
+            catch(error)
+            {
+                console.log(error);
+                alert("Registration Failed");
+            }
+
+        });
+
+    </script>
 
 </body>
 

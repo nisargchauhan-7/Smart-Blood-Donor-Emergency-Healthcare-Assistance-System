@@ -133,62 +133,62 @@
 
     <script>
 
-document.getElementById("loginForm")
-.addEventListener("submit", async function(e){
+        document.getElementById("loginForm")
+        .addEventListener("submit", async function(e){
 
-    e.preventDefault();
+            e.preventDefault();
 
-    let email =
-    document.getElementById("email").value;
+            let email =
+            document.getElementById("email").value;
 
-    let password =
-    document.getElementById("password").value;
+            let password =
+            document.getElementById("password").value;
 
-    try {
+            try {
 
-        const response = await fetch(
-            "http://localhost:8000/api/users/login",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email,
-                    password
-                })
+                const response = await fetch(
+                "http://localhost:8000/api/users/login",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            email,
+                            password
+                        })
+                    }   
+                );
+
+                const data = await response.json();
+
+                if(response.ok)
+                {
+                    localStorage.setItem(
+                        "currentUser",
+                        JSON.stringify(data.user)
+                    );
+
+                    alert("Login Successful");
+
+                    window.location.href =
+                    "dashboard.html";
+                }
+                else
+                {
+                    alert(data.message);
+                }
+
             }
-        );
+            catch(error)
+            {
+                console.log(error);
+                alert("Login Failed");
+            }
 
-        const data = await response.json();
+        });
 
-        if(response.ok)
-        {
-            localStorage.setItem(
-                "currentUser",
-                JSON.stringify(data.user)
-            );
-
-            alert("Login Successful");
-
-            window.location.href =
-            "dashboard.html";
-        }
-        else
-        {
-            alert(data.message);
-        }
-
-    }
-    catch(error)
-    {
-        console.log(error);
-        alert("Login Failed");
-    }
-
-});
-
-</script>
+    </script>
 
 </body>
 
